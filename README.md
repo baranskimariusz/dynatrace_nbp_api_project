@@ -91,4 +91,4 @@ deactivate
 
 - Flask - The web framework used
 - Requests - HTTP library for Python
-- Brainpower
+- Brainpower - Complex organ that controls thought, memory...
