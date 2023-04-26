@@ -4,6 +4,7 @@ NBP_API_BASE_URL = "http://api.nbp.pl/api"
 
 def get_average_exchange_rate(currency, date):
     response = requests.get(f'{NBP_API_BASE_URL}/exchangerates/rates/a/{currency}/{date}')
+    result = 0
     if response.status_code == 200:
         data = response.json()
         result = {"currency": currency, "date": date, "average_exchange_rate": data['rates'][0]['mid']}
@@ -11,6 +12,7 @@ def get_average_exchange_rate(currency, date):
 
 def get_min_max_average(currency, num_days):
     response = requests.get(f'{NBP_API_BASE_URL}/exchangerates/rates/a/{currency}/last/{num_days}')
+    result = 0
     if response.status_code == 200:
         data = response.json()
         min_avg = min(rate['mid'] for rate in data['rates'])
@@ -20,6 +22,7 @@ def get_min_max_average(currency, num_days):
 
 def get_major_difference(currency, num_days):
     response = requests.get(f'{NBP_API_BASE_URL}/exchangerates/rates/c/{currency}/last/{num_days}')
+    result = 0
     if response.status_code == 200:
         data = response.json()
         differences = [rate['ask'] - rate['bid'] for rate in data['rates']]
