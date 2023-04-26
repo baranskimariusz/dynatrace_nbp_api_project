@@ -8,5 +8,5 @@ def handle_nbp_error(status_code):
         message = "Invalid input data."
     else:
         message = "An error occurred while processing your request."
-    
-    return jsonify({"error": message}), status_code
+
+    return jsonify({"error": message}), status_code;

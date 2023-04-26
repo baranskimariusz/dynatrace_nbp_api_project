@@ -6,7 +6,7 @@ from http import HTTPStatus
 def client():
     app.config['TESTING'] = True
     with app.test_client() as client:
-        yield client
+        yield client;
 
 def test_av_exch_rate(client):
     response = client.get('/average_exchange_rate/usd/2021-04-01')
